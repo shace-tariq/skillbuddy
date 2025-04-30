@@ -1,0 +1,67 @@
+.main-nav {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo img {
+    max-height: 60px;
+  }
+  
+  .nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav li {
+    margin: 0 10px;
+  }
+  
+  .nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav a:hover {
+    color: #f48529;
+  }
+  
+  .main-blue-button a {
+    background-color: #f48529;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main-blue-button a:hover {
+    background-color: #e26e1b;
+  }
+  
+  .search-icon a {
+    padding: 8px 12px;
+    background-color: #f48529;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+  }
+  
+  .menu-trigger {
+    display: none; /* You can enable it later for mobile menu */
+  }
+  
+  /* Optional: Hide mobile-specific elements unless needed */
+  .search-li-mobile {
+    display: none;
+  }
+  
