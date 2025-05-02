@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css'; // Assuming you have a CSS file for styling
+import '../styles/Navbar.css'; // Assuming you have a CSS file for styling
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Navbar({setActiveSection}) {

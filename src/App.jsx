@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Sidebar from './components/sidebar';
-import Body from './components/Body';
+import Navbar from './pages/Navbar';
+import Sidebar from './pages/sidebar';
+import Body from './pages/Body';
 
 function App() {
   const [activeSection, setActiveSection] = React.useState('home'); // default is Home page
