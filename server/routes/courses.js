@@ -1,16 +1,10 @@
 import express from 'express';
-import Course from '../models/course.js';
+import { protect } from '../middleware/authMiddleware.js';
+import { createCourse, getAllCourses } from '../controllers/courseController.js';
 
 const router = express.Router();
 
-// GET /api/courses
-router.get('/', async (req, res) => {
-  try {
-    const courses = await Course.find();
-    res.json(courses);
-  } catch (error) {
-    res.status(500).json({ error: 'Server error fetching courses' });
-  }
-});
+router.post('/create', protect, createCourse);
+router.get('/', getAllCourses);
 
 export default router;

@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './pages/Navbar';
 import Sidebar from './pages/sidebar';
 import Body from './pages/Body';
+import axios from 'axios';
 
 function App() {
-  const [activeSection, setActiveSection] = React.useState('home'); // default is Home page
+  const [activeSection, setActiveSection] = useState('home');
 
   return (
     <div>
       <Navbar setActiveSection={setActiveSection} />
-      <Sidebar/>
+      <Sidebar />
       <Body activeSection={activeSection} />
     </div>
   );

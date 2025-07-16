@@ -14,7 +14,7 @@ function Navbar({setActiveSection}) {
           <nav className="main-nav">
             {/* Logo */}
             <a href="#" className="logo">
-              <img src="/logo.png" alt="logo" />
+              <img src="/skillbuddy/dist/icons/logo.png" alt="logo" />
             </a>
 
             {/* Menu */}  
@@ -27,7 +27,7 @@ function Navbar({setActiveSection}) {
               <li ><a href="#"  onClick={() => setActiveSection('FAQS')} >FAQs</a></li>
               <li ><a href="#"  onClick={() => setActiveSection('ContactUs')} >Contact Us</a></li>
               <li >
-                <a id="LMSLink" href="/"  onClick={() => setActiveSection('SignIn')}  rel="noopener noreferrer">Sign In</a>
+                <a id="LMSLink" href="#"  onClick={() => setActiveSection('SignIn')}  rel="noopener noreferrer">Sign In</a>
               </li>
               <li >
                 <div className="main-blue-button search-icon search-li LargeScreenSearch">

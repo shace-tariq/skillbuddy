@@ -1,49 +1,60 @@
 // src/pages/Courses.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import CardItem from '../components/CardItem';
 
 function Courses() {
-  // Optional: Later, fetch from API or JSON
-  const courses = [
-    {
-      title: "Digital Marketing",
-      imageUrl: "https://digiskills.pk/images/courses/SEO101_Image.png",
-      strength: "1,200",
-      buttonText: "Enroll Now"
-    },
-    {
-      title: "Creative Writing",
-      imageUrl: "https://digiskills.pk/images/courses/SEO101_Image.png",
-      strength: "950",
-      buttonText: "Start Learning"
-    },
-    {
-      title: "SEO Basics",
-      imageUrl: "https://digiskills.pk/images/courses/SEO101_Image.png",
-      strength: "1,800",
-      buttonText: "More Info"
-    },
-    {
-      title: "Graphic Design",
-      imageUrl: "https://digiskills.pk/images/courses/SEO101_Image.png",
-      strength: "2,500",
-      buttonText: "Enroll"
-    }
-  ];
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/api/courses');
+        setCourses(res.data);
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   return (
-    //make the div to center
-    <div className="container my-4 d-flex justify-content-center flex-column align-items-center" style={{ marginLeft: '100px' , marginTop: '100px' }}>
-    <h1 className="text-center mb-4">Available Courses</h1>
-    <div className="row justify-content-center">
-      {courses.map((course, index) => (
-        <div className="col-md-4 mb-4" key={index}>
-          <CardItem {...course} customClass="course-card" />
-        </div>
-      ))}
+    <div
+      style={{
+        paddingTop: '120px', // Prevent heading hiding behind navbar
+        paddingBottom: '50px',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center', // ✅ Centers everything inside
+      }}
+    >
+      <h1 className="text-center mb-4">Available Courses</h1>
+
+      <div
+        className="d-flex flex-wrap justify-content-center gap-4"
+        style={{
+          maxWidth: '1200px',
+          width: '100%',
+        }}
+      >
+        {courses.map((course, index) => (
+          <div key={index} style={{ flex: '0 1 300px' }}>
+            <CardItem
+              title={course.name}
+              imageUrl={course.image}
+              strength={course.studentsEnrolled}
+              courseCode={course.courseCode}
+              instructor={course.instructor}
+              description={course.description}
+              buttonText="View Course"
+              customClass="course-card"
+            />
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-  
   );
 }
 
