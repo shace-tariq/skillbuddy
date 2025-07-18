@@ -21,6 +21,9 @@ app.use(express.json());  // Middleware for JSON requests
 app.use('/api/users', userRoutes);  // User routes
 app.use('/api/courses', courseRoutes);  // Mount course routes here
 
-app.listen(5000, () => {
-  console.log('✅ Server running on port 5000');
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
+
