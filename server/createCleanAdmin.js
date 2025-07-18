@@ -7,10 +7,7 @@ dotenv.config();
 
 const createAdmin = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    awaitmongoose.connect(process.env.MONGO_URI);
 
     // Clean up existing admin
     await User.deleteMany({ email: 'admin@skillbuddy.com' });
